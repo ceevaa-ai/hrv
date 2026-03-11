@@ -22,9 +22,9 @@
   --red-dim: rgba(220,38,38,0.06);
   --amber: #d97706;
   --amber-dim: rgba(217,119,6,0.06);
-  --text: #1a1a1a;
-  --text2: #5c5c5c;
-  --text3: #999;
+  --text: #111;
+  --text2: #4a4a4a;
+  --text3: #888;
   --serif: 'Newsreader', Georgia, serif;
   --sans: 'Outfit', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
@@ -37,8 +37,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -191,7 +191,7 @@ body {
 
 .card-lbl {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 10.5px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--text3);
@@ -207,8 +207,8 @@ body {
 .callout {
   padding: 12px 14px;
   border-radius: 6px;
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.65;
   margin-top: 12px;
 }
 .callout b { font-weight: 500; }
@@ -252,9 +252,9 @@ body {
 }
 .ev-hrv b { font-family: var(--mono); font-size: 13px; font-weight: 500; }
 .ev-note {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--text2);
-  line-height: 1.55;
+  line-height: 1.6;
   padding: 6px 10px;
   background: var(--bg3);
   border-left: 2px solid var(--c, var(--accent));
@@ -284,15 +284,15 @@ body {
   margin-bottom: 3px;
 }
 .finding-b {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--text2);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .finding-b b { color: var(--text); font-weight: 500; }
 
 /* ── DISTRIBUTION ──────────────────────────────────── */
 .dist-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.dist-lbl { font-family: var(--mono); font-size: 11px; color: var(--text2); width: 65px; flex-shrink: 0; text-align: right; }
+.dist-lbl { font-family: var(--mono); font-size: 11.5px; color: var(--text2); width: 65px; flex-shrink: 0; text-align: right; }
 .dist-track { flex: 1; height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
 .dist-fill { height: 100%; border-radius: 4px; }
 .dist-pct { font-family: var(--mono); font-size: 11px; color: var(--text3); width: 38px; }
@@ -373,9 +373,9 @@ body {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 16px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text3);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 .disc-title {
   font-family: var(--mono);
@@ -399,7 +399,7 @@ body {
 }
 
 /* ── TINY LABEL ────────────────────────────────────── */
-.tiny { font-size: 11px; color: var(--text3); font-style: italic; margin-top: 6px; }
+.tiny { font-size: 11.5px; color: var(--text3); font-style: italic; margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -1223,8 +1223,9 @@ function rollingMean(arr, w) {
 
 const dates  = RAW.map(r => {
   const [y,m] = r.d.split('-');
-  const months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  return months[parseInt(m)] + ' \'' + y.slice(2);
+  const mi = parseInt(m);
+  const q = Math.ceil(mi/3);
+  return 'Q' + q + " '" + y.slice(2);
 });
 const hrv    = RAW.map(r => r.h > 110 ? null : r.h);
 const roll14 = rollingMean(RAW.map(r => r.h > 110 ? null : r.h), 14);
@@ -1292,7 +1293,7 @@ new Chart(mainCtx, {
       }
     },
     scales: {
-      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { maxRotation: 0, maxTicksLimit: 14, color: '#999', font: { size: 9 }, callback: function(val, idx) { const lbl = this.getLabelForValue(val); if(idx === 0) return lbl; const prev = this.getLabelForValue(val-1); return lbl !== prev ? lbl : ''; } } },
+      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { maxRotation: 0, color: '#666', font: { size: 10, family: "'IBM Plex Mono', monospace" }, autoSkip: false, callback: function(val, idx) { const lbl = this.getLabelForValue(val); if(idx === 0) return lbl; const prev = this.getLabelForValue(val-1); return lbl !== prev ? lbl : ''; } } },
       y: { grid: { color: 'rgba(0,0,0,0.04)' }, min: 0, max: 100, ticks: { callback: v => v + ' ms', stepSize: 20, color: '#999' } }
     }
   }
