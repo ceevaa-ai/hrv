@@ -645,19 +645,19 @@ body {
           </div>
 
           <div class="ev">
-            <div class="ev-dot" style="--c:var(--amber)"></div>
-            <div class="ev-when">August 2023</div>
-            <div class="ev-name">Knee surgery</div>
-            <div class="ev-hrv">Surgery window: <b class="c-g">44.0 ms</b> — held above annual mean</div>
-            <div class="ev-note" style="--c:var(--amber)">Major surgery didn't crash HRV. Acute physical stress was handled.</div>
-          </div>
-
-          <div class="ev">
             <div class="ev-dot" style="--c:var(--red)"></div>
             <div class="ev-when">May 12, 2023</div>
             <div class="ev-name">Lost grandmother</div>
             <div class="ev-hrv">Readings around this period: <b class="c-r">14.9–27.3 ms</b></div>
             <div class="ev-note" style="--c:var(--red)">May 2023 was already a low period, but the readings in the days around this loss are among the lowest in the dataset. The body was already strained; this compounded it.</div>
+          </div>
+
+          <div class="ev">
+            <div class="ev-dot" style="--c:var(--amber)"></div>
+            <div class="ev-when">August 2023</div>
+            <div class="ev-name">Knee surgery</div>
+            <div class="ev-hrv">Surgery window: <b class="c-g">44.0 ms</b> — held above annual mean</div>
+            <div class="ev-note" style="--c:var(--amber)">Major surgery didn't crash HRV. Acute physical stress was handled.</div>
           </div>
 
           <div class="ev">
@@ -1221,12 +1221,7 @@ function rollingMean(arr, w) {
   });
 }
 
-const dates  = RAW.map(r => {
-  const [y,m] = r.d.split('-');
-  const mi = parseInt(m);
-  const q = Math.ceil(mi/3);
-  return 'Q' + q + " '" + y.slice(2);
-});
+const dates  = RAW.map(r => r.d);
 const hrv    = RAW.map(r => r.h > 110 ? null : r.h);
 const roll14 = rollingMean(RAW.map(r => r.h > 110 ? null : r.h), 14);
 const mean41 = RAW.map(() => 41.5);
@@ -1287,13 +1282,18 @@ new Chart(mainCtx, {
         borderWidth: 1,
         padding: 10,
         callbacks: {
-          title: i => i[0].label,
+          title: function(items) {
+            const d = items[0].label;
+            const [y,m,day] = d.split('-');
+            const months = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            return months[parseInt(m)] + ' ' + parseInt(day) + ', ' + y;
+          },
           label: i => i.datasetIndex === 2 ? null : `${i.dataset.label}: ${i.parsed.y !== null ? i.parsed.y.toFixed(1) + ' ms' : '–'}`
         }
       }
     },
     scales: {
-      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { maxRotation: 0, color: '#666', font: { size: 10, family: "'IBM Plex Mono', monospace" }, autoSkip: false, callback: function(val, idx) { const lbl = this.getLabelForValue(val); if(idx === 0) return lbl; const prev = this.getLabelForValue(val-1); return lbl !== prev ? lbl : ''; } } },
+      x: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { maxRotation: 0, color: '#666', font: { size: 10, family: "'IBM Plex Mono', monospace" }, autoSkip: true, maxTicksLimit: 13, callback: function(val, idx) { const d = this.getLabelForValue(val); if(!d) return ''; const [y,m] = d.split('-'); const mi = parseInt(m); const q = Math.ceil(mi/3); return 'Q'+q+" '"+y.slice(2); } } },
       y: { grid: { color: 'rgba(0,0,0,0.04)' }, min: 0, max: 100, ticks: { callback: v => v + ' ms', stepSize: 20, color: '#999' } }
     }
   }
