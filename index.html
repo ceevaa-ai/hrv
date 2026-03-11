@@ -199,8 +199,8 @@ body {
 }
 
 /* ── GRIDS ─────────────────────────────────────────── */
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; align-items: start; }
 @media(max-width:800px) { .g2,.g3 { grid-template-columns: 1fr; } }
 
 /* ── CALLOUT ───────────────────────────────────────── */
@@ -507,7 +507,7 @@ body {
     <div class="g2">
       <div class="card">
         <div class="card-lbl">Mean HRV per year</div>
-        <div style="height:200px"><canvas id="yearChart"></canvas></div>
+        <div style="height:180px"><canvas id="yearChart"></canvas></div>
       </div>
       <div class="card">
         <div class="card-lbl">Annual progression</div>
