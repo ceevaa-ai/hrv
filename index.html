@@ -878,38 +878,75 @@ body {
       <h2 class="sec-title">The Fun Stuff</h2>
       <div class="sec-line"></div>
     </div>
-    <div class="g3" style="margin-bottom:14px">
-      <div class="card" style="text-align:center;">
-        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:var(--mono);margin-bottom:6px">Best single day</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;color:var(--green)">172.4 ms</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:4px">Feb 13, 2024 · Breathe session</div>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:18px;">Not everything needs to be actionable. Some data is just fun to look at.</p>
+
+    <!-- Records row -->
+    <div class="g3" style="margin-bottom:16px">
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(26,127,90,0.04),rgba(26,127,90,0.01));border-color:rgba(26,127,90,0.15);">
+        <div style="font-size:28px;margin-bottom:4px">🏆</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time high</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--green)">172.4<span style="font-size:12px;color:var(--text3)"> ms</span></div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">Feb 13, 2024 — Breathe session</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">That's elite athlete territory. For 5 minutes.</div>
       </div>
-      <div class="card" style="text-align:center;">
-        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:var(--mono);margin-bottom:6px">Worst single day</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;color:var(--red)">8.8 ms</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:4px">Apr 29, 2023 · Bhubaneswar</div>
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(192,57,43,0.04),rgba(192,57,43,0.01));border-color:rgba(192,57,43,0.12);">
+        <div style="font-size:28px;margin-bottom:4px">📉</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time low</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--red)">8.8<span style="font-size:12px;color:var(--text3)"> ms</span></div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">Apr 29, 2023 — Bhubaneswar</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">That's ICU-patient territory. You were fine.</div>
       </div>
-      <div class="card" style="text-align:center;">
-        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-family:var(--mono);margin-bottom:6px">Biggest bounce</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;color:var(--blue)">9.9→52.0</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:4px">+425% in 48 hours · Mar 2026</div>
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01));border-color:rgba(37,99,235,0.12);">
+        <div style="font-size:28px;margin-bottom:4px">🚀</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">Biggest comeback</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--blue)">9.9 → 52.0</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">+425% in 48 hours — Mar 2026</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">The body doesn't hold grudges.</div>
       </div>
     </div>
-    <div class="g2">
+
+    <!-- Holiday scorecard + Vacation -->
+    <div class="g2" style="margin-bottom:16px">
       <div class="card">
-        <div class="card-lbl">Holiday scorecard</div>
-        <div class="ms"><span class="ms-l">New Year's Eve</span><span class="ms-v c-r">11.6 → 14.7 ms</span></div>
-        <div class="ms"><span class="ms-l">Valentine's Day (2025)</span><span class="ms-v c-g">68.4 ms</span></div>
-        <div class="ms"><span class="ms-l">Birthday 2025</span><span class="ms-v c-g">52.0 ms</span></div>
-        <div class="ms"><span class="ms-l">Birthday arc (3 years)</span><span class="ms-v">26.8 → 32.2 → 52.0</span></div>
-        <p class="tiny">NYE consistently tanks HRV. Valentine's 2025 was one of the best days in the dataset.</p>
+        <div class="card-lbl">🎉 Holiday scorecard</div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
+          <span style="color:var(--text2)">New Year's Eve</span>
+          <span style="font-family:var(--mono);color:var(--red);text-align:right">11.6 → 14.7 ms 💀</span>
+          <span style="color:var(--text2)">Valentine's Day 2025</span>
+          <span style="font-family:var(--mono);color:var(--green);text-align:right">68.4 ms ❤️</span>
+          <span style="color:var(--text2)">Birthday 2025</span>
+          <span style="font-family:var(--mono);color:var(--green);text-align:right">52.0 ms 🎂</span>
+          <span style="color:var(--text2)">Birthday arc (3 years)</span>
+          <span style="font-family:var(--mono);text-align:right">26.8 → 32.2 → 52.0 📈</span>
+        </div>
+        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">NYE has tanked HRV both years on record. Valentine's 2025 was one of the best days in the entire dataset. Love > champagne.</div>
       </div>
       <div class="card">
-        <div class="card-lbl">Vacation vs home</div>
-        <div class="ms"><span class="ms-l">Trips away</span><span class="ms-v c-g">45.4 ms (33 days)</span></div>
-        <div class="ms"><span class="ms-l">Home base</span><span class="ms-v">40.2 ms (571 days)</span></div>
-        <div class="ms"><span class="ms-l">Travel days (city change)</span><span class="ms-v c-r">39.1 ms</span></div>
-        <p class="tiny">Vacation boosts HRV +13%, but the actual travel day costs ~1.2 ms.</p>
+        <div class="card-lbl">✈️ Vacation vs home</div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
+          <span style="color:var(--text2)">Trips away</span>
+          <span style="font-family:var(--mono);color:var(--green);text-align:right">45.4 ms (33 days)</span>
+          <span style="color:var(--text2)">Home base</span>
+          <span style="font-family:var(--mono);text-align:right">40.2 ms (571 days)</span>
+          <span style="color:var(--text2)">Travel days (city change)</span>
+          <span style="font-family:var(--mono);color:var(--red);text-align:right">39.1 ms</span>
+          <span style="color:var(--text2)">The vacation premium</span>
+          <span style="font-family:var(--mono);color:var(--green);text-align:right;font-weight:500">+13% 🏖️</span>
+        </div>
+        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Vacations genuinely reset the nervous system. The actual travel day costs ~1.2 ms (airports, sitting, disruption) — but the destination more than makes up for it.</div>
+      </div>
+    </div>
+
+    <!-- Quick-fire trivia -->
+    <div class="card" style="background:var(--bg3);">
+      <div class="card-lbl">⚡ Quick-fire trivia</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:13px;color:var(--text2);line-height:1.8;">
+        <span>Best 30-day window ever</span><span style="font-family:var(--mono);color:var(--text)">54.6 ms · Jun 26–Jul 26, 2025 · Bengaluru</span>
+        <span>Worst 30-day window ever</span><span style="font-family:var(--mono);color:var(--text)">22.9 ms · Apr 29–May 28, 2023 · Prayagraj/Bhubaneswar</span>
+        <span>Longest streak above 40 ms</span><span style="font-family:var(--mono);color:var(--text)">28 consecutive days · Feb 2025 · Bengaluru</span>
+        <span>Best El Clásico HRV</span><span style="font-family:var(--mono);color:var(--text)">62.1 ms · 4-0 win · Apr 2023</span>
+        <span>Highest city (travel)</span><span style="font-family:var(--mono);color:var(--text)">Hyderabad · 54.0 ms (7 readings)</span>
+        <span>Lowest city (travel)</span><span style="font-family:var(--mono);color:var(--text)">Ranchi · 29.8 ms (4 readings)</span>
       </div>
     </div>
   </div>
