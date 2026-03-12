@@ -338,6 +338,33 @@ body {
     </div>
   </div>
 </div>
+<!-- ═══════ PATTERNS ═══════ -->
+<div class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num n-amber">Patterns</span>
+      <h2 class="sec-title">Seasonal & Weekly Rhythms</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-lbl">Average HRV by month (all years)</div>
+        <div style="height:200px"><canvas id="monthChart"></canvas></div>
+        <div class="callout call-a"><b>Summer peak:</b> Jun–Aug average 43.0 ms vs 40.2 ms overall. Jul is the standout at 45.5 ms (72 readings). Apr–May look low partly because 2023's early struggle (Apr 2023: 29 ms, 23 readings) drags the all-years average down heavily.</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Average HRV by day of week</div>
+        <div style="height:200px"><canvas id="dowChart"></canvas></div>
+        <div class="callout call-r"><b>Weekend drop:</b> Sat/Sun avg 38.9 ms vs 42.5 ms weekdays. Friday nights show up Saturday morning.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="card-lbl">Summer vs Winter — by year</div>
+      <div style="height:180px"><canvas id="seasonChart"></canvas></div>
+      <p class="tiny">Summer = Jun–Aug, Winter = Dec–Feb. The seasonal gap is real and consistent.</p>
+    </div>
+  </div>
+</div>
 <!-- ═══════ LIFE EVENTS ═══════ -->
 <div class="section">
   <div class="wrap">
@@ -641,7 +668,7 @@ body {
       <h2 class="sec-title">The Pickleball Effect</h2>
       <div class="sec-line"></div>
     </div>
-    <p style="font-size:14px;color:var(--text2);margin-bottom:18px;">76 tracked pickleball sessions. 64 matched to same-day HRV readings. This turned out to be <b style="color:var(--text)">the single strongest controllable factor in the entire dataset</b> — stronger than location, sleep, or anything else.</p>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:18px;">76 tracked sessions from Apple Health. 64 matched to same-day HRV. 12 table tennis sessions also included. 255 total workouts scanned. This turned out to be <b style="color:var(--text)">the single strongest controllable factor in the entire dataset</b> — stronger than location, sleep, or anything else.</p>
 
     <div class="g3" style="margin-bottom:16px">
       <div class="card" style="border-top:3px solid #10b981;text-align:center;">
@@ -682,30 +709,177 @@ body {
     <div class="callout" style="background:rgba(16,185,129,0.06);border-left:3px solid #10b981;"><b style="color:var(--text)">The honest caveat:</b> pickleball mostly happened in Bengaluru during the 2025 peak, so location is confounded. But the effect size (+13.7 ms) is more than double the Bengaluru city advantage (+6.2 ms), suggesting pickleball has its own independent contribution. It's the most actionable finding in this dashboard — you can decide to play tomorrow.</div>
   </div>
 </div>
-<!-- ═══════ PATTERNS ═══════ -->
+<!-- ═══════ INSIGHTS ═══════ -->
 <div class="section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num n-amber">Patterns</span>
-      <h2 class="sec-title">Seasonal & Weekly Rhythms</h2>
+      <span class="sec-num n-blue">Insights</span>
+      <h2 class="sec-title">What the Data Says — and What to Do About It</h2>
       <div class="sec-line"></div>
     </div>
-    <div class="g2">
-      <div class="card">
-        <div class="card-lbl">Average HRV by month (all years)</div>
-        <div style="height:200px"><canvas id="monthChart"></canvas></div>
-        <div class="callout call-a"><b>Summer peak:</b> Jun–Aug average 43.0 ms vs 40.2 ms overall. Jul is the standout at 45.5 ms (72 readings). Apr–May look low partly because 2023's early struggle (Apr 2023: 29 ms, 23 readings) drags the all-years average down heavily.</div>
-      </div>
-      <div class="card">
-        <div class="card-lbl">Average HRV by day of week</div>
-        <div style="height:200px"><canvas id="dowChart"></canvas></div>
-        <div class="callout call-r"><b>Weekend drop:</b> Sat/Sun avg 38.9 ms vs 42.5 ms weekdays. Friday nights show up Saturday morning.</div>
+
+    <div class="card" style="background:var(--bg3);margin-bottom:16px">
+      <div class="card-lbl">Depth of analysis</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;font-size:13px;color:var(--text2)">
+        <div><b style="color:var(--text);font-family:var(--mono)">587</b> HRV readings analysed</div>
+        <div><b style="color:var(--text);font-family:var(--mono)">1,166</b> location records matched</div>
+        <div><b style="color:var(--text);font-family:var(--mono)">232</b> sleep nights matched</div>
+        <div><b style="color:var(--text);font-family:var(--mono)">76</b> pickleball sessions tracked</div>
+        <div><b style="color:var(--text);font-family:var(--mono)">204</b> Real Madrid matches checked</div>
+        <div><b style="color:var(--text);font-family:var(--mono)">10</b> Apple Health metrics tested</div>
       </div>
     </div>
-    <div class="card" style="margin-top:14px">
-      <div class="card-lbl">Summer vs Winter — by year</div>
-      <div style="height:180px"><canvas id="seasonChart"></canvas></div>
-      <p class="tiny">Summer = Jun–Aug, Winter = Dec–Feb. The seasonal gap is real and consistent.</p>
+
+    <div class="card" style="border-left:3px solid var(--green);margin-bottom:16px">
+      <div class="card-lbl" style="color:var(--green)">What moves HRV up — ranked by effect size</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.85">
+        <p><b style="color:var(--green)">1. Pickleball</b> — +13.7 ms on play days (47.1 vs 33.4 ms, 64 matched days). +12.4 ms carry-over next morning. 3+ sessions/week → 46.3 ms. Shorter sessions (&lt;60 min) recover better.</p>
+        <p><b style="color:var(--text)">2. Location</b> — Bengaluru 43.7 ms vs Bhubaneswar 37.5 ms across 379 matched readings. 3 of 4 sustained highs happened in Bengaluru.</p>
+        <p><b style="color:var(--text)">3. Vacations</b> — 45.4 ms vs 40.2 ms home base across 604 days (+13%). Breaks reset the nervous system.</p>
+        <p><b style="color:var(--text)">4. Breathing practice</b> — spikes to 172 ms show strong parasympathetic responsiveness. 5 min/day at 6 breaths/min is the most validated single HRV intervention.</p>
+        <p><b style="color:var(--text)">5. Seasonality</b> — Jul: 45.5 ms (72 readings). May: 32.8 ms (30 readings). Summer + outdoor activity.</p>
+        <p><b style="color:var(--text)">6. Weekend consistency</b> — Sat/Sun 3.5 ms lower than weekdays across all 3 years. Protect Friday/Saturday nights.</p>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--red);margin-bottom:16px">
+      <div class="card-lbl" style="color:var(--red)">What doesn't move the needle — despite expectations</div>
+      <div style="font-size:14px;color:var(--text2);line-height:1.85">
+        <p>We tested every trackable metric in the Apple Health export. These came back near-zero:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px">
+          <div style="background:var(--bg3);border-radius:10px;padding:14px">
+            <div style="font-family:var(--mono);font-size:12px;color:var(--text)">Sleep duration</div>
+            <div style="font-family:var(--mono);font-size:22px;color:var(--red);margin:4px 0">r = 0.03</div>
+            <div style="font-size:12px;color:var(--text3)">232 matched nights. Top and bottom HRV days had similar sleep (~7h).</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:10px;padding:14px">
+            <div style="font-family:var(--mono);font-size:12px;color:var(--text)">Daily steps</div>
+            <div style="font-family:var(--mono);font-size:22px;color:var(--red);margin:4px 0">r = −0.03</div>
+            <div style="font-size:12px;color:var(--text3)">520 matched days. More steps ≠ higher HRV.</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:10px;padding:14px">
+            <div style="font-family:var(--mono);font-size:12px;color:var(--text)">Active calories</div>
+            <div style="font-family:var(--mono);font-size:22px;color:var(--red);margin:4px 0">r = 0.06</div>
+            <div style="font-size:12px;color:var(--text3)">520 matched days. Burning more calories doesn't help.</div>
+          </div>
+        </div>
+        <p style="margin-top:14px">Life stressors, location, and specific activity type (pickleball, not just "movement") dominate so heavily that generic fitness metrics don't register.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-lbl">Key patterns</div>
+      <div class="finding">
+        <div class="finding-n">1</div>
+        <div>
+          <div class="finding-t">The body handles shocks better than chronic uncertainty</div>
+          <div class="finding-b">Knee surgery: HRV held at 44 ms. Job change: led to the best months ever. <b>The 5-month decline (Nov 2025 → Mar 2026)</b> is the longest sustained drop — open-ended stress registers differently.</div>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="finding-n">2</div>
+        <div>
+          <div class="finding-t">Median is the honest baseline, not mean</div>
+          <div class="finding-b">Mean: 41.5 ms. Median: <b>37.2 ms</b>. The gap is inflated by 14 Breathe sessions. For personal benchmarking, use the median.</div>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="finding-n">3</div>
+        <div>
+          <div class="finding-t">What pushes HRV down</div>
+          <div class="finding-b">Chronic open-ended stress (5-month decline) > discrete shocks (surgery held at 44 ms). NYE consistently tanks it (11.6–14.7 ms). Weekend Friday nights cost 3.5 ms every week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ═══════ FUN FACTS ═══════ -->
+<div class="section">
+  <div class="wrap">
+    <div class="sec-label">Fun</div>
+    <div class="sec-title">The Fun Stuff</div>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:18px;">Not everything needs to be actionable. Some data is just fun to look at.</p>
+
+    <div class="g3" style="margin-bottom:16px">
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(26,127,90,0.04),rgba(26,127,90,0.01));border-color:rgba(26,127,90,0.15);">
+        <div style="font-size:28px;margin-bottom:4px">🏆</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time high</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--green)">172.4<span style="font-size:12px;color:var(--text3)"> ms</span></div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">Feb 13, 2024 — Breathe session</div>
+      </div>
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(192,57,43,0.04),rgba(192,57,43,0.01));border-color:rgba(192,57,43,0.12);">
+        <div style="font-size:28px;margin-bottom:4px">📉</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time low</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--red)">8.8<span style="font-size:12px;color:var(--text3)"> ms</span></div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">Apr 29, 2023 — Bhubaneswar</div>
+      </div>
+      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01));border-color:rgba(37,99,235,0.12);">
+        <div style="font-size:28px;margin-bottom:4px">🚀</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">Biggest bounce</div>
+        <div style="font-family:var(--serif);font-size:2rem;color:var(--blue)">9.9 → 52.0</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">+425% in 48 hours — Mar 2026</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-bottom:16px">
+      <div class="card">
+        <div class="card-lbl">🎉 Holidays</div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
+          <span style="color:var(--text2)">New Year's Eve</span><span style="font-family:var(--mono);color:var(--red);text-align:right">11.6 → 14.7 ms 💀</span>
+          <span style="color:var(--text2)">Valentine's Day 2025</span><span style="font-family:var(--mono);color:var(--green);text-align:right">68.4 ms ❤️</span>
+          <span style="color:var(--text2)">Birthday arc (3 years)</span><span style="font-family:var(--mono);text-align:right">26.8 → 32.2 → 52.0 📈</span>
+        </div>
+        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Love > champagne. Every time.</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">✈️ Vacation vs home</div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
+          <span style="color:var(--text2)">Trips away</span><span style="font-family:var(--mono);color:var(--green);text-align:right">45.4 ms (+13%) 🏖️</span>
+          <span style="color:var(--text2)">Home base</span><span style="font-family:var(--mono);text-align:right">40.2 ms</span>
+          <span style="color:var(--text2)">Travel day penalty</span><span style="font-family:var(--mono);color:var(--red);text-align:right">−1.2 ms</span>
+        </div>
+        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Vacations reset the nervous system. Travel days don't.</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-bottom:16px">
+      <div class="card">
+        <div class="card-lbl">⚽ Real Madrid × HRV</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.7">
+          <p>204 matches checked against HRV data. 127 had readings.</p>
+          <p style="margin-top:8px">Match days cost <b style="color:var(--text)">~2 ms</b> vs non-match days. Losses dip <b style="color:var(--text)">4 ms below baseline</b> but bounce back by next morning. Wins? <b style="color:var(--text)">+0.4 ms</b> — same as a random day. Your heart doesn't celebrate La Liga wins. It just punishes losses briefly.</p>
+        </div>
+      </div>
+      <div class="card" style="background:var(--bg3)">
+        <div class="card-lbl">⚡ Quick-fire trivia</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:13px;color:var(--text2);line-height:1.9">
+          <span>Best 30-day window</span><span style="font-family:var(--mono);color:var(--text)">54.6 ms · Jun–Jul 2025 · Bengaluru</span>
+          <span>Worst 30-day window</span><span style="font-family:var(--mono);color:var(--text)">22.9 ms · Apr–May 2023 · Prayagraj</span>
+          <span>Longest streak above 40</span><span style="font-family:var(--mono);color:var(--text)">28 days · Feb 2025 · Bengaluru</span>
+          <span>Highest travel city</span><span style="font-family:var(--mono);color:var(--text)">Hyderabad · 54.0 ms (7 readings)</span>
+          <span>Lowest travel city</span><span style="font-family:var(--mono);color:var(--text)">Ranchi · 29.8 ms (4 readings)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ═══════ CONCLUSION ═══════ -->
+<div class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num n-green">Story</span>
+      <h2 class="sec-title">The Bottom Line</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="conclusion">
+      <div class="conclusion-body">
+        <p>In 2023, average HRV was 37.9 ms. By 2025, it was 46.8 ms — a <b>23% improvement</b> built through recovery from knee surgery (which held at 44 ms during the acute phase), a marriage, and the clarity that came after leaving a job. <b>Jan–Feb 2025 averaged 52.2 ms</b> — the best sustained stretch ever — right as a new company was launching.</p>
+        <p>The single most important finding: <b>pickleball</b>. On play days, HRV averaged 47.1 ms vs 33.4 ms without — a 41% gap across 64 matched days. Weeks with 3+ sessions: 46.3 ms. Weeks with zero: 32.6 ms. Jul 2025 had 20 sessions and HRV peaked at 54 ms. Jan 2026 had 1 session and sat at 39. Shorter sessions (&lt;60 min) produced better next-day recovery (49.6 ms) than long ones (43.8 ms). No other variable came close to this effect size.</p>
+        <p>Location was the second strongest signal. Bengaluru: <b>43.7 ms across 261 readings</b>. Prayagraj: 37.2 across 192. Bhubaneswar: 37.5 across 118. Three of four sustained high periods happened in Bengaluru. All three major lows happened elsewhere — a 17% gap across hundreds of data points.</p>
+        <p>Several things that should matter turned out not to. We tested 10 Apple Health metrics, matched 232 sleep nights, and cross-referenced 204 Real Madrid matches. Sleep duration: r = 0.03. Daily steps: r = −0.03. Active calories: r = 0.06. RM win rate: r = −0.09. The things that actually showed up: <b>weekend nights</b> (−3.5 ms on Sat/Sun), <b>Breathe sessions</b> (spikes to 172 ms), <b>seasonality</b> (Jul 45.5 ms vs May 32.8 ms), and <b>vacations</b> (+13% over home base).</p>
+        <p>The current stretch is a 5-month decline — 44.9 to 28.7 ms — coinciding with a move to Bhubaneswar, near-zero pickleball (3 sessions in 4 months vs 39 in Jul–Aug alone), and the open-ended stress of building a pre-revenue company. The data shows the body absorbs discrete shocks well but struggles when uncertainty has no timeline.</p>
+        <p>The recovery track record is 2 for 2. The birthday arc across three years — <b>26.8 → 32.2 → 52.0 ms</b> — is the clearest proof that the long-term trajectory is real and the physiological capacity is intact. The current dip is a setback, not an erasure. The roadmap is already in the data.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -713,7 +887,7 @@ body {
 <div class="section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num n-blue">Distribution</span>
+      <span class="sec-num n-blue">Appendix</span>
       <h2 class="sec-title">How Your HRV Breaks Down</h2>
       <div class="sec-line"></div>
     </div>
@@ -753,253 +927,6 @@ body {
           <div class="ms"><div class="ms-l">75th percentile</div><div class="ms-v">50.0 ms</div></div>
         </div>
         <div class="callout call-r"><b>1 in 5 days falls below 25 ms</b> — that's 130+ days of physiological stress showing up in the data.</div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ═══════ KEY FINDINGS ═══════ -->
-<div class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num n-blue">Insights</span>
-      <h2 class="sec-title">Key Findings</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="card">
-      <div class="finding">
-        <div class="finding-n">1</div>
-        <div>
-          <div class="finding-t">Median vs mean tells different stories</div>
-          <div class="finding-b">Lifetime mean: 41.5 ms. Lifetime median: <b>37.2 ms</b>. The mean is inflated by 14 Breathe session spikes. The median is the honest baseline — and it's 4.3 ms lower than the number that looks good.</div>
-        </div>
-      </div>
-      <div class="finding">
-        <div class="finding-n">2</div>
-        <div>
-          <div class="finding-t">The body handles shocks better than chronic uncertainty</div>
-          <div class="finding-b">Knee surgery: HRV held at 44 ms. Grandmother's passing: already in a low, but bounced. <b>The 5-month decline (Nov 2025 → Mar 2026)</b> is the longest sustained drop — open-ended stress registers differently than discrete events.</div>
-        </div>
-      </div>
-      <div class="finding">
-        <div class="finding-n">3</div>
-        <div>
-          <div class="finding-t">Pickleball + Bengaluru is the winning formula</div>
-          <div class="finding-b">Weeks with 3+ pickleball sessions in Bengaluru: <b>~50+ ms average</b>. Weeks with no pickleball in Bhubaneswar: ~32 ms. That's a 56% gap between the best and worst controllable states.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ═══════ REAL MADRID ═══════ -->
-<div class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num n-blue">Hala Madrid</span>
-      <h2 class="sec-title">Does Real Madrid Affect Your Heart? (Literally)</h2>
-      <div class="sec-line"></div>
-    </div>
-    <p style="font-size:13.5px;color:var(--text2);margin-bottom:16px;">204 Real Madrid matches (2023–2026) matched against 587 HRV readings. 127 match days had HRV data. Here's what shows up.</p>
-
-    <div class="g3" style="margin-bottom:14px">
-      <div class="card" style="text-align:center;">
-        <div style="font-size:12px;color:var(--text3);margin-bottom:6px;">Match day HRV — after a WIN</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--text)">38.8<span style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-left:2px">ms</span></div>
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">88 match days</div>
-      </div>
-      <div class="card" style="text-align:center;">
-        <div style="font-size:12px;color:var(--text3);margin-bottom:6px;">Match day HRV — after a LOSS</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--red)">35.5<span style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-left:2px">ms</span></div>
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">22 match days</div>
-      </div>
-      <div class="card" style="text-align:center;">
-        <div style="font-size:12px;color:var(--text3);margin-bottom:6px;">Match day HRV — after a DRAW</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--amber)">41.8<span style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-left:2px">ms</span></div>
-        <div style="font-size:11px;color:var(--text3);margin-top:4px">17 match days</div>
-      </div>
-    </div>
-
-    <div class="g2" style="margin-bottom:14px">
-      <div class="card">
-        <div class="card-lbl">The surprising finding</div>
-        <div style="font-size:13.5px;color:var(--text2);line-height:1.7;">
-          <p><b style="color:var(--text)">Match days are worse than non-match days.</b> Average HRV on Real Madrid match days: 38.6 ms. Non-match days: 40.5 ms. That's a 1.9 ms penalty just for having a game on. The excitement, the late nights (many matches start at 01:30 IST), the emotional investment — it all registers.</p>
-          <p style="margin-top:10px"><b style="color:var(--text)">But losses don't hurt as much as you'd think the next day.</b> Day-after-win HRV: 40.7 ms. Day-after-loss: 42.3 ms. Counter-intuitive — but losses may mean earlier sleep (resigned to the result), while wins might mean staying up celebrating or rewatching highlights.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-lbl">Late night matches cost more</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-          <div style="background:var(--bg3);border-radius:8px;padding:14px;text-align:center;">
-            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Late kicks (01:30+ IST)</div>
-            <div style="font-family:var(--serif);font-size:1.5rem;color:var(--text)">43.0<span style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:2px">ms next day</span></div>
-          </div>
-          <div style="background:var(--bg3);border-radius:8px;padding:14px;text-align:center;">
-            <div style="font-size:11px;color:var(--text3);margin-bottom:4px">Earlier kicks</div>
-            <div style="font-family:var(--serif);font-size:1.5rem;color:var(--text)">37.2<span style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:2px">ms next day</span></div>
-          </div>
-        </div>
-        <div style="font-size:12.5px;color:var(--text2);line-height:1.6;">Wait — late matches produce <b style="color:var(--text)">better</b> next-day HRV? Likely because late IST = European prime time = weeknight games = you go to sleep right after. Earlier IST kickoffs often fall on weekends where other disruptions compound.</div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-lbl">El Clásico — when it gets personal</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:8px;">
-        <div style="background:var(--green-dim);border-radius:6px;padding:10px;">
-          <div style="font-size:11px;color:var(--text3)">Apr 6, 2023 · 4-0 WIN</div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--green)">Match day: 62.1 ms</div>
-          <div style="font-size:10px;color:var(--text3)">One of the highest match-day readings ever</div>
-        </div>
-        <div style="background:var(--green-dim);border-radius:6px;padding:10px;">
-          <div style="font-size:11px;color:var(--text3)">Jan 14, 2024 · 4-1 WIN</div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--green)">Match day: 42.5 · After: 41.7</div>
-          <div style="font-size:10px;color:var(--text3)">Steady. Comfortable win, comfortable body.</div>
-        </div>
-        <div style="background:var(--red-dim);border-radius:6px;padding:10px;">
-          <div style="font-size:11px;color:var(--text3)">Jan 12, 2025 · 2-5 LOSS</div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--red)">Match day: 38.9 · After: 44.9</div>
-          <div style="font-size:10px;color:var(--text3)">Painful loss, but body bounced next day</div>
-        </div>
-        <div style="background:var(--red-dim);border-radius:6px;padding:10px;">
-          <div style="font-size:11px;color:var(--text3)">Jan 11, 2026 · 2-3 LOSS</div>
-          <div style="font-family:var(--mono);font-size:13px;color:var(--red)">Match day: 29.9 · After: 29.2</div>
-          <div style="font-size:10px;color:var(--text3)">No bounce. Both days below 30. Ouch.</div>
-        </div>
-      </div>
-      <div class="callout call-b" style="margin-top:12px"><b>The 4-0 Clásico win (Apr 2023) produced 62.1 ms</b> — one of the highest readings in a month that averaged just 29 ms. Real Madrid beating Barça 4-0 was, physiologically, the best thing that happened to the body that entire month.</div>
-    </div>
-
-    <div class="callout call-a"><b>The verdict:</b> Real Madrid matches measurably impact HRV (−1.9 ms on match days). Loss days sit 9.7% below that month's baseline; win days only 1.9% below. El Clásico wins produce genuine physiological joy. But monthly RM win rate and monthly HRV have essentially zero correlation (r = −0.09) — so Madrid's form doesn't predict your health. The real enemy isn't the result. It's staying up for the 01:30 AM kickoff.</div>
-  </div>
-</div>
-<!-- ═══════ FUN FACTS ═══════ -->
-<div class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num n-amber">Fun</span>
-      <h2 class="sec-title">The Fun Stuff</h2>
-      <div class="sec-line"></div>
-    </div>
-    <p style="font-size:14px;color:var(--text2);margin-bottom:18px;">Not everything needs to be actionable. Some data is just fun to look at.</p>
-
-    <!-- Records row -->
-    <div class="g3" style="margin-bottom:16px">
-      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(26,127,90,0.04),rgba(26,127,90,0.01));border-color:rgba(26,127,90,0.15);">
-        <div style="font-size:28px;margin-bottom:4px">🏆</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time high</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--green)">172.4<span style="font-size:12px;color:var(--text3)"> ms</span></div>
-        <div style="font-size:12px;color:var(--text2);margin-top:6px">Feb 13, 2024 — Breathe session</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:2px">That's elite athlete territory. For 5 minutes.</div>
-      </div>
-      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(192,57,43,0.04),rgba(192,57,43,0.01));border-color:rgba(192,57,43,0.12);">
-        <div style="font-size:28px;margin-bottom:4px">📉</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">All-time low</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--red)">8.8<span style="font-size:12px;color:var(--text3)"> ms</span></div>
-        <div style="font-size:12px;color:var(--text2);margin-top:6px">Apr 29, 2023 — Bhubaneswar</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:2px">That's ICU-patient territory. You were fine.</div>
-      </div>
-      <div class="card" style="text-align:center;background:linear-gradient(135deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01));border-color:rgba(37,99,235,0.12);">
-        <div style="font-size:28px;margin-bottom:4px">🚀</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px">Biggest comeback</div>
-        <div style="font-family:var(--serif);font-size:2rem;color:var(--blue)">9.9 → 52.0</div>
-        <div style="font-size:12px;color:var(--text2);margin-top:6px">+425% in 48 hours — Mar 2026</div>
-        <div style="font-size:11px;color:var(--text3);margin-top:2px">The body doesn't hold grudges.</div>
-      </div>
-    </div>
-
-    <!-- Holiday scorecard + Vacation -->
-    <div class="g2" style="margin-bottom:16px">
-      <div class="card">
-        <div class="card-lbl">🎉 Holiday scorecard</div>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
-          <span style="color:var(--text2)">New Year's Eve</span>
-          <span style="font-family:var(--mono);color:var(--red);text-align:right">11.6 → 14.7 ms 💀</span>
-          <span style="color:var(--text2)">Valentine's Day 2025</span>
-          <span style="font-family:var(--mono);color:var(--green);text-align:right">68.4 ms ❤️</span>
-          <span style="color:var(--text2)">Birthday 2025</span>
-          <span style="font-family:var(--mono);color:var(--green);text-align:right">52.0 ms 🎂</span>
-          <span style="color:var(--text2)">Birthday arc (3 years)</span>
-          <span style="font-family:var(--mono);text-align:right">26.8 → 32.2 → 52.0 📈</span>
-        </div>
-        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">NYE has tanked HRV both years on record. Valentine's 2025 was one of the best days in the entire dataset. Love > champagne.</div>
-      </div>
-      <div class="card">
-        <div class="card-lbl">✈️ Vacation vs home</div>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px;line-height:2;">
-          <span style="color:var(--text2)">Trips away</span>
-          <span style="font-family:var(--mono);color:var(--green);text-align:right">45.4 ms (33 days)</span>
-          <span style="color:var(--text2)">Home base</span>
-          <span style="font-family:var(--mono);text-align:right">40.2 ms (571 days)</span>
-          <span style="color:var(--text2)">Travel days (city change)</span>
-          <span style="font-family:var(--mono);color:var(--red);text-align:right">39.1 ms</span>
-          <span style="color:var(--text2)">The vacation premium</span>
-          <span style="font-family:var(--mono);color:var(--green);text-align:right;font-weight:500">+13% 🏖️</span>
-        </div>
-        <div style="font-size:12px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Vacations genuinely reset the nervous system. The actual travel day costs ~1.2 ms (airports, sitting, disruption) — but the destination more than makes up for it.</div>
-      </div>
-    </div>
-
-    <!-- Quick-fire trivia -->
-    <div class="card" style="background:var(--bg3);">
-      <div class="card-lbl">⚡ Quick-fire trivia</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:13px;color:var(--text2);line-height:1.8;">
-        <span>Best 30-day window ever</span><span style="font-family:var(--mono);color:var(--text)">54.6 ms · Jun 26–Jul 26, 2025 · Bengaluru</span>
-        <span>Worst 30-day window ever</span><span style="font-family:var(--mono);color:var(--text)">22.9 ms · Apr 29–May 28, 2023 · Prayagraj/Bhubaneswar</span>
-        <span>Longest streak above 40 ms</span><span style="font-family:var(--mono);color:var(--text)">28 consecutive days · Feb 2025 · Bengaluru</span>
-        <span>Best El Clásico HRV</span><span style="font-family:var(--mono);color:var(--text)">62.1 ms · 4-0 win · Apr 2023</span>
-        <span>Highest city (travel)</span><span style="font-family:var(--mono);color:var(--text)">Hyderabad · 54.0 ms (7 readings)</span>
-        <span>Lowest city (travel)</span><span style="font-family:var(--mono);color:var(--text)">Ranchi · 29.8 ms (4 readings)</span>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ═══════ WHAT TO DO ═══════ -->
-<div class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num n-green">Action</span>
-      <h2 class="sec-title">What the Data Suggests</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="card">
-      <div style="font-size:13.5px;color:var(--text2);line-height:1.8;">
-        <p style="margin-bottom:6px"><b style="color:var(--text)">What moves HRV up — ranked by effect size in this dataset:</b></p>
-        <p><b style="color:#10b981">1. Pickleball</b> — +13.7 ms on play days (47.1 vs 33.4). +12.4 ms carry-over into the next day. 3+ sessions/week → 46.3 ms. The single strongest controllable lever. Shorter sessions (&lt;60 min) recover better than long ones (&gt;90 min).</p>
-        <p><b style="color:var(--text)">2. Location</b> — Bengaluru 43.7 ms vs Bhubaneswar 37.5 ms across hundreds of readings. 3 of 4 sustained highs happened there. The partner, the routine, the climate — something about the environment matters.</p>
-        <p><b style="color:var(--text)">3. Vacations &amp; breaks</b> — trips away averaged 45.4 ms vs 40.2 ms at home (+13%). Even short breaks reset the nervous system. Travel days themselves cost ~1.2 ms, but the net effect is strongly positive.</p>
-        <p><b style="color:var(--text)">4. Breathing practice</b> — Breathe session spikes up to 172 ms prove strong parasympathetic responsiveness. 5 min/day at 6 breaths/min is the most clinically validated single intervention for HRV.</p>
-        <p><b style="color:var(--text)">5. Seasonality &amp; outdoor activity</b> — Jul averaged 45.5 ms (72 readings), May averaged 32.8 ms. The summer peaks align with both more pickleball and more time outside. Summer 2025 in Bengaluru was the best stretch in the dataset.</p>
-        <p><b style="color:var(--text)">6. Weekend consistency</b> — Sat/Sun are 3.5 ms lower than weekdays, every single year. Friday/Saturday nights disrupt recovery. Protecting the sleep window those nights is the easiest free lever.</p>
-        <p style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)"><b style="color:var(--text)">What pushes HRV down:</b> chronic open-ended stress (5-month decline during building phase) registers harder than discrete shocks (surgery held at 44 ms, job change led to the best months ever). Real Madrid losses dip HRV 9.7% below the month's baseline on match day. NYE consistently tanks it (11.6, 14.7 ms).</p>
-        <p style="margin-top:10px"><b style="color:var(--text)">What doesn't matter:</b> sleep duration (r = 0.03), daily steps (r = −0.03), active calories (r = 0.06), RM monthly win rate (r = −0.09). All near-zero.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ═══════ CONCLUSION ═══════ -->
-<div class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-num n-green">Story</span>
-      <h2 class="sec-title">The Bottom Line</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="conclusion">
-      <div class="conclusion-pull">
-        587 readings. Three cities. 76 pickleball sessions. 204 Real Madrid matches. Three years of a nervous system responding to everything life threw at it — and leaving a data trail.
-      </div>
-      <div class="conclusion-body">
-        <p>In 2023, average HRV was 37.9 ms. By 2025, it was 46.8 ms — a 23% improvement built through recovery from knee surgery (which held at 44 ms during the acute phase), a marriage, and the clarity that came after leaving a job. <b>Jan–Feb 2025 averaged 52.2 ms</b> — the best sustained stretch ever — right as a new company was launching. The nervous system rewarded purpose over comfort.</p>
-
-        <p>The single most important finding in this dashboard is pickleball. On play days, HRV averaged <b>47.1 ms vs 33.4 ms on rest days — a 41% gap</b>. Weeks with 3+ sessions: 46.3 ms. Weeks with zero: 32.6 ms. Jul 2025 had 20 sessions and HRV peaked at 54 ms. Jan 2026 had 1 session and HRV sat at 39. Shorter sessions (&lt;60 min) produced better next-day recovery (49.6 ms) than long ones (43.8 ms). No other variable — not sleep duration, not step count, not calories — came close to this effect size.</p>
-
-        <p>Location was the second strongest signal. Bengaluru: <b>43.7 ms across 261 readings</b>. Prayagraj: 37.2 ms across 192. Bhubaneswar: 37.5 ms across 118. Three of four sustained high periods happened in Bengaluru. All three major lows happened elsewhere. That's a 17% gap between the best and worst city across hundreds of data points.</p>
-
-        <p>Several things that should matter turned out not to. Sleep duration showed near-zero correlation (r = 0.03 across 232 matched nights). Daily steps: r = −0.03. Active calories: r = 0.06. What did show up: <b>weekend nights</b> (Sat/Sun 3.5 ms lower — likely Friday night behaviour), <b>Breathe sessions</b> (spikes to 172 ms proving strong parasympathetic responsiveness), and <b>seasonality</b> (Jul: 45.5 ms across 72 readings; May: 32.8 ms).</p>
-
-        <p>The current stretch is a 5-month decline from 44.9 ms to 28.7 ms. It coincides with moving to Bhubaneswar, near-zero pickleball (3 sessions in 4 months vs 39 in Jul–Aug alone), and the open-ended stress of a pre-revenue company. The data shows the body absorbs discrete shocks well but struggles when uncertainty has no timeline.</p>
-
-        <p>The recovery track record is 2 for 2. The 2023 trough (worst 30-day window: 22.9 ms) climbed into the 2025 peak (best 30-day window: 54.6 ms). The birthday arc across three years — <b>26.8 → 32.2 → 52.0 ms</b> — is the clearest proof that the long-term trajectory is real and the physiological capacity is intact. The current dip is a setback, not an erasure. The roadmap is already in the data.</p>
       </div>
     </div>
   </div>
