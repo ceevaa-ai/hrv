@@ -959,6 +959,16 @@ body {
     This dashboard, including all underlying personal health data, cross-variable analyses (workout–health, location–health, lifestyle–health, and any other correlations), statistical methodology, visualisations, narrative insights, design, and source code, constitutes original proprietary work and is protected under applicable intellectual property laws. No part of this work may be reproduced, republished, distributed, transmitted, displayed, adapted, reverse-engineered, scraped, used to train AI/ML models, or used to create derivative works, in whole or in part, in any form or by any means, for any purpose — including research, editorial, commercial, educational, or personal — without prior written consent from the author. Viewing access does not constitute a licence to use. Unauthorised use will be pursued to the fullest extent permitted by law.
   </div>
 </div>
+<script>
+// Anti-casual-snooping measures
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S')) e.preventDefault();
+  if (e.key === 'F12') e.preventDefault();
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) e.preventDefault();
+});
+console.log('%c⚠ This dashboard contains proprietary health data. Unauthorised access, extraction, or reproduction is prohibited. © 2026 Parth Bhatia.', 'color: #c0392b; font-size: 14px; font-weight: bold; padding: 8px;');
+</script>
 <!-- ═══════ CHARTS ═══════ -->
 <script>
 Chart.defaults.color = '#999';
